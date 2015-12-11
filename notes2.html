@@ -45,26 +45,24 @@ function initMap() {
   var service = new google.maps.places.PlacesService(map);
   service.nearbySearch({
     location: CodeFellows,
-    radius: 500,
-    types: ['restaurant', 'cafe','bakery', 'meal_takeaway', 'food', 'point_of_interest','bar'],
-    openNow: true
+    radius: 400,
+    types: ['restaurant', 'cafe','bakery', 'meal_takeaway', 'food', 'bar'],
+    openNow: true,
+    maxPriceLevel:1
   }, callback);
 }
-  // var open = new google.maps.places.PlacesService(map); 
-  // open.nearbySearch({
-  //   location: CodeFellows
-  // });
-// open.setMap(map);
+
 function callback(results, status) {
   if (status === google.maps.places.PlacesServiceStatus.OK) {
     for (var i = 0; i < results.length; i++) {
       createMarker(results[i]);
+      // var encoded = JSON.stringify(results);
+// var hydrated = JSON.parse(data);
       console.log(results[i]);
       // TODO: use the results information to populate form
     }
   }
 }
-
 
 
 function createMarker(place) {
@@ -80,6 +78,14 @@ function createMarker(place) {
     infowindow.open(map, this);
   });
 }
+//   var makeTable = function(results, status) {
+//     if (status === google.maps.places.PlacesServiceStatus.OK) {
+//       for(var i=0; i < results.length; i++) {
+
+//     }
+// };
+// var table = "<table id ='table'>  <tr>  <th>name</th>  <th>price_level</th>  <th>rating</th> </tr>";
+// makeTable(callback);
 
     </script>
   </head>
