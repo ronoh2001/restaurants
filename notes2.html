@@ -58,7 +58,10 @@ function callback(results, status) {
       createMarker(results[i]);
       // var encoded = JSON.stringify(results);
 // var hydrated = JSON.parse(data);
-      console.log(results[i]);
+      //console.log(results[i]);
+      results.forEach(function(result) {
+        console.log(result.name)
+      })
       // TODO: use the results information to populate form
     }
   }
